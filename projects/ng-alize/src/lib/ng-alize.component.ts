@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lib-ng-alize',
+  selector: 'alz-ng-alize',
   imports: [],
   template: `
     <p>
