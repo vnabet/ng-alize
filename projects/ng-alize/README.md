@@ -4,8 +4,8 @@
 
 ## Icones
 
-[Alizé - Icones](./icon/readme.md)
+[Alizé - Icones](./icon/README.md)
 
 ## Boutons
 
-[Alizé - Boutons](./button/readme.md)
+[Alizé - Boutons](./button/README.md)
