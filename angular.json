@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ng-alize",
       "sourceRoot": "projects/ng-alize/src",
-      "prefix": "alz",
+      "prefix": "",
       "schematics": {
         "@schematics/angular:component": {
           "changeDetection": "OnPush",

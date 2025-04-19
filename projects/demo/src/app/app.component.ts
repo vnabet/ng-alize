@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { IconComponent } from 'ng-alize/icon';
+import { AlzIconComponent } from 'ng-alize/icon';
 
 @Component({
   selector: 'app-root',
-  imports: [IconComponent],
+  imports: [AlzIconComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
