@@ -7,7 +7,22 @@
       "projectType": "library",
       "root": "projects/ng-alize",
       "sourceRoot": "projects/ng-alize/src",
-      "prefix": "lib",
+      "prefix": "alz",
+      "schematics": {
+        "@schematics/angular:component": {
+          "changeDetection": "OnPush",
+          "path": "projects/ng-alize"
+        },
+        "@schematics/angular:directive": {
+          "path": "projects/ng-alize"
+        },
+        "@schematics/angular:pipe": {
+          "path": "projects/ng-alize"
+        },
+        "@schematics/angular:service": {
+          "path": "projects/ng-alize"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
