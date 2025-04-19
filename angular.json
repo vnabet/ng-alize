@@ -11,7 +11,10 @@
       "schematics": {
         "@schematics/angular:component": {
           "changeDetection": "OnPush",
-          "path": "projects/ng-alize"
+          "path": "projects/ng-alize",
+          "flat": true,
+          "inlineStyle": true,
+          "inlineTemplate": true
         },
         "@schematics/angular:directive": {
           "path": "projects/ng-alize"
