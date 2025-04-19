@@ -1,1 +1,1 @@
-export const ALIZE_ICON = 'Alizé Icon';
+export * from './components';
