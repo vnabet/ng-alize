@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
 
+const hostClassList = 'inline-block w-6 h-6 relative';
+
 /**
  * Composant d'affichage d'icônes
  * Il utilise la police d'icônes Material Symbols
@@ -16,7 +18,7 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
     }
   `,
   host: {
-    class: 'inline-block w-6 h-6 relative',
+    class: hostClassList,
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
