@@ -7,12 +7,17 @@ import { ChangeDetectionStrategy, Component, computed, input } from '@angular/co
 @Component({
   selector: 'alz-icon',
   imports: [],
-  template: `<span class="material-symbols-rounded" [class.filled]="filledBool()"><ng-content></ng-content></span>`,
+  template: `<span class="material-symbols-rounded absolute top-0 left-0" [class.filled]="filledBool()"
+    ><ng-content></ng-content
+  ></span>`,
   styles: `
     .filled {
       font-variation-settings: 'FILL' 1;
     }
   `,
+  host: {
+    class: 'inline-block w-6 h-6 relative',
+  },
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AlzIconComponent {
