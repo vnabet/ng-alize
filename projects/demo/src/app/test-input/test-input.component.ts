@@ -1,4 +1,4 @@
-import { Component, effect, signal } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, signal, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -16,17 +16,24 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ]),
   ],
 })
-export class TestInputComponent {
-  focused = signal(false);
+export class TestInputComponent implements AfterViewInit {
+  @ViewChild('container') container!: ElementRef;
 
-  constructor() {
-    effect(() => {
-      console.log('TestInputComponent', this.focused());
-    });
+  protected readonly focused = signal(false);
+  #input: HTMLInputElement | null = null;
+
+  ngAfterViewInit() {
+    // Je cherche si le container contient un input
+    this.#input = this.container.nativeElement.querySelector('input');
   }
 
   focusHandler() {
     const focused = this.focused();
-    this.focused.set(!focused);
+    const value = this.#input?.value;
+    if (value) {
+      this.focused.set(true);
+    } else {
+      this.focused.set(!focused);
+    }
   }
 }
