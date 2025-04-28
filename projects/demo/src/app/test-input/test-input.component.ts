@@ -36,4 +36,38 @@ export class TestInputComponent implements AfterViewInit {
       this.focused.set(!focused);
     }
   }
+
+  clickHandler($event: MouseEvent) {
+    const input = $event.currentTarget as HTMLElement;
+    // Position de l'input dans le viewport
+    const rect = input.getBoundingClientRect();
+    // Position de l'input dans le document
+    const top = rect.top + window.scrollY;
+    const left = rect.left + window.scrollX;
+    //Récupération de la taille de l'input
+    const width = rect.width;
+    const height = rect.height;
+
+    // A partir de ces 4 je crée un tableau de 4 points
+    const points = [
+      { x: left, y: top },
+      { x: left + width, y: top },
+      { x: left + width, y: top + height },
+      { x: left, y: top + height },
+    ];
+    console.log(points);
+
+    // J'ajoute une div juste en dessous de l'input
+    const div = document.createElement('div');
+    div.classList.add('absolute', 'bg-red-500', 'w-10', 'h-10,');
+    div.style.top = `${points[3].y}px`;
+    div.style.left = `${points[3].x}px`;
+    div.style.width = `${width}px`;
+    div.style.height = `${height}px`;
+    div.style.zIndex = '1000';
+    div.style.pointerEvents = 'none';
+    div.innerText = 'Hello';
+    // ajouter la div au body
+    document.body.appendChild(div);
+  }
 }
