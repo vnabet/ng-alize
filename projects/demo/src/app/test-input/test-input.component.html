@@ -1,0 +1,5 @@
+<span class="relative mt-2 inline-block">
+  <label for="coco" class="absolute p-2 pointer-events-none font-bold" [@focus]="focused()?'focused':'blurred'">Essai</label>
+  <input type="text" placeholder="Coucou les coco" (focus)="focusHandler()" (blur)="focusHandler()" name="coco" class="p-2 placeholder:opacity-0 focus-visible:placeholder:opacity-70 focus-visible:outline-0 rounded-xl bg-amber-100"/>
+  <!--  <input type="text" placeholder="Coucou les coco" name="coco" class="p-2 focus-visible:outline-0 rounded-xl bg-amber-100"/>-->
+</span>
