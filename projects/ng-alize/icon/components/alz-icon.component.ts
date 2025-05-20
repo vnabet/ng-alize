@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input } from '@angular/core';
 
 const hostClassList = 'inline-block w-6 h-6 relative';
 
@@ -9,7 +9,7 @@ const hostClassList = 'inline-block w-6 h-6 relative';
 @Component({
   selector: 'alz-icon',
   imports: [],
-  template: `<span class="material-symbols-rounded absolute top-0 left-0" [class.filled]="filledBool()"
+  template: `<span class="material-symbols-rounded absolute top-0 left-0" [class.filled]="filled()"
     ><ng-content></ng-content
   ></span>`,
   styles: `
@@ -24,7 +24,5 @@ const hostClassList = 'inline-block w-6 h-6 relative';
 })
 export class AlzIconComponent {
   // Input pour définir si l'icône est remplie ou non
-  readonly filled = input('false');
-  // Transforme la valeur de l'input filled en un booléen pour appliquer la classe CSS correspondante
-  protected readonly filledBool = computed(() => this.filled() !== 'false');
+  readonly filled = input(false);
 }

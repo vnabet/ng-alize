@@ -10,7 +10,7 @@ const meta: Meta<StoryType> = {
   // Nous définissons les arguments qui peuvent être contrôlés
   argTypes: {
     filled: {
-      control: 'text',
+      control: 'boolean',
       description: "Détermine si l'icône est remplie ou non",
     },
     icon: {
@@ -20,7 +20,7 @@ const meta: Meta<StoryType> = {
   },
   // Configuration par défaut pour toutes les stories
   args: {
-    filled: 'false',
+    filled: false,
     icon: 'home',
   },
   // Paramètres pour la documentation
@@ -53,7 +53,7 @@ export const Default: Story = {
 // Story avec une icône remplie
 export const Filled: Story = {
   args: {
-    filled: 'true',
+    filled: true,
     icon: 'settings',
   },
 };
