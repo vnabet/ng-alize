@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/angular';
-import { AlzIconComponent } from '../components/alz-icon.component';
+import { AlzIconComponent } from '../components';
 
 type StoryType = AlzIconComponent & { icon?: string };
 
