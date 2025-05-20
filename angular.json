@@ -51,6 +51,36 @@
             ],
             "eslintConfig": "projects/ng-alize/eslint.config.js"
           }
+        },
+        "storybook": {
+          "builder": "@storybook/angular:start-storybook",
+          "options": {
+            "configDir": "projects/ng-alize/.storybook",
+            "browserTarget": "ng-alize:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/ng-alize"
+            ],
+            "port": 6006
+          }
+        },
+        "build-storybook": {
+          "builder": "@storybook/angular:build-storybook",
+          "options": {
+            "configDir": "projects/ng-alize/.storybook",
+            "browserTarget": "ng-alize:build",
+            "compodoc": true,
+            "compodocArgs": [
+              "-e",
+              "json",
+              "-d",
+              "projects/ng-alize"
+            ],
+            "outputDir": "dist/storybook/ng-alize"
+          }
         }
       }
     },
