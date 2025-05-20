@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, signal, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, computed, effect, ElementRef, signal, viewChild, ViewChild } from '@angular/core';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 @Component({
@@ -6,6 +6,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   imports: [],
   templateUrl: './test-input.component.html',
   styleUrl: './test-input.component.css',
+  standalone: true,
   animations: [
     trigger('focus', [
       // Define your animation states and transitions here
@@ -18,6 +19,15 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 })
 export class TestInputComponent implements AfterViewInit {
   @ViewChild('container') container!: ElementRef;
+
+  protected readonly container2 = viewChild<ElementRef>('container');
+  #input2 = computed(() => this.container2()?.nativeElement?.querySelector('input'));
+
+  constructor() {
+    effect(() => {
+      console.log('INPUT SIGNAL', this.#input2());
+    });
+  }
 
   protected readonly focused = signal(false);
   #input: HTMLInputElement | null = null;
