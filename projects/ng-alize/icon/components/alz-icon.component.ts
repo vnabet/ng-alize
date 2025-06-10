@@ -24,9 +24,28 @@ const hostClassList = 'inline-block w-6 h-6 relative';
 })
 export class AlzIconComponent {
   // Input pour définir si l'icône est remplie ou non
-  readonly filled = input('false');
+  readonly filled: InputSignal<unknown> = input(false as unknown);
 
-  protected readonly filledBoolean = computed(() => (this.filled() === 'false' ? false : true));
+  // Champ calculé pour déterminer l'état rempli de l'icône
+  protected readonly filledBoolean = computed(() => {
+    const type = typeof this.filled();
+    let result: boolean;
+    switch (type) {
+      // Pour le type boolean, on retourne directement la valeur
+      case 'boolean':
+        result = this.filled() as boolean;
+        break;
+      // Pour le type string, on considère 'false' comme false et tout autre valeur comme true
+      case 'string':
+        result = this.filled() !== 'false';
+        break;
+      default:
+        // Pour tout autre type, on retourne false
+        result = true;
+        break;
+    }
+    return result;
+  });
 
   constructor() {
     effect(() => {
